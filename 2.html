@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">  
+    <style>
+
+.container{
+	position:relative;
+	margin-top:-75px;
+	border:1px solid rgb(216,216,216);
+	border-top:none;
+	background-color:white;
+}
+.loimg{
+margin: auto;
+}
+.wenzi{
+	margin-left:10%;
+	margin-top:10%;
+}
+.denglu{
+	border:1px solid rgb(76,143,210);
+	border-radius:5px;
+	background: linear-gradient(to top, rgb(28,110,190) , rgb(69,147,220));
+	color:white;
+	font-size:20px;
+	height:50px;
+	width:160px;
+}
+.weibu {
+background-color:rgb(245,245,245);
+margin-top:-20px;
+height:10px;
+position:relative;
+margin-top:0px;;
+border-top:1px solid rgb(216,216,216);
+}
+.fin{
+	text-align:center;
+}
+.modal-header{
+background-color:rgb(44,44,44);
+}
+.modal-title{
+	color:white;
+	font-weight:bold;
+}
+.zh{
+margin-left:30%;
+margin-top:10px;
+	height:30px;
+	width:40%;
+	border:1px solid rgb(216,216,216);
+	border-radius:2px;
+}
+.dl{
+margin-left:30%;
+margin-top:10px;
+	height:30px;
+	width:40%;
+	border:1px solid rgb(216,216,216);
+	border-radius:5px;
+	color:white;
+	background: linear-gradient(to top, rgb(28,110,190) , rgb(69,147,220));
+}
+.choice{
+	border:none;
+	margin-left:30%;
+margin-top:10px;
+	height:30px;
+	width:40%;
+}
+.forget{
+	float:right;
+	font-size:13px;
+	color:gray;
+	font-weight:normal;
+	padding-top:2px;
+}
+.other{
+float:left;
+}
+.login{
+	color:blue;
+	margin-top:25px;
+}
+.navbar-toggle{
+	margin-top:15px;
+}
+.down{
+    margin-top: 16px;
+}
+.container-fluid{
+width:100%;
+margin:0px;
+padding:0px;
+position:relative;
+}
+	</style>
+</head>
+<body style="background-color:rgb(245,245,245)">
+<div class="container-fluid">
+    <iframe width="100%" height="100%" src="i1.html" frameborder="0" class="iframe"></iframe> 
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+		<br/><br/><br/><br/>
+			<div class="col-sm-6 col-md-6 col-xs-12">
+				<img src="images/login.png" class="loimg" width="100%">
+			</div>
+			<div class="col-sm-6 col-md-6 col-xs-12">
+			<div class="wenzi">
+				<h1>登录云音乐<h1>
+				<h4>查看并管理你收藏的私房音乐，</h4>
+				<h4>方便地随时随地收听</h4><br/>
+				<button class="denglu btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">立即登录</button>
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h5 class="modal-title" id="myModalLabel">登录</h5>
+						</div>
+						<br/><br/>
+						<div class="modal-body">
+							<input type="text" class="zh" placeholder="　请输入账号"></input>
+							<input type="password" class="zh" placeholder="　请输入密码"></input>
+							<div class="choice">
+								<input type="checkbox" checked /><label><span style="font-size:13px;color:gray;font-weight:normal">　自动登录</span></label>
+								<a href="#" class="forget">忘记密码？</a>
+							</div>
+							<button type="submit" class="dl">登 　录</button>
+							<br/><br/><br/>
+						</div>
+						<div class="modal-footer">
+							<a href="#" class="other">
+							<span style="font-size:13px;font-weight:normal">
+							< 其他登录方式
+							</span>
+							</a>
+							<a href="#">
+							<span style="font-size:13px;color:gray;font-weight:normal">
+							没有账号？免费注册 >
+							</span>
+							</a>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+			<br/><br/><br/><br/>
+</div>
+<iframe width="100%" height="100%" src="i2.html" frameborder="0" class="iframe"></iframe> 
+<script src="lib/jquery/jquery-1.11.0.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$(".denglu").click(function(e){
+		e.preventDefault();
+		$(this).tab("show");
+	})
+</script>
+</body>
+</html>
