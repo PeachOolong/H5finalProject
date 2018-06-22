@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>注册页面</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">  
+    <style>
+	.container{
+		position:relative;
+		margin-top:-75px;
+		border:1px solid rgb(216,216,216);
+		border-top:none;
+		background-color:white;
+	}
+	.main{
+		text-align:center;
+	}
+	.m1{
+		display:table;
+		margin:0 auto;
+	}
+	.inputs{
+		border:solid 1px rgb(216,216,216);
+		width:170px;;
+		height:25px;
+	}
+	.iis{
+		border:none;
+		width:170px;;
+		height:25px;	
+	}
+	dl dd {
+		display: inline-block;
+		font-size:13px;
+		color:#000;
+		margin-left: 5px;
+		line-height: 18px;
+	}
+	dl{
+		clear:both;
+		line-height: 22px;
+	}
+	dt,dd{
+		float:left;
+	}
+	dt{
+		width:110px;
+		text-align:right;
+		font-size:14px;
+		height:30px;
+		line-height:25px;
+		font-weight:formal;
+	}
+	.xx{
+		font-weight:100;	
+	}
+	dd{
+		font-size:12px;
+		color:#666666;
+	}
+	.bb{
+		border:none;
+		width:100px;
+		height:35px;
+		background-color:rgb(69,147,220);
+		font-size:14px;
+		color:white;
+		border-radius:3px;
+	}
+	dl>dd:first-of-type{width: 170px;}
+.import_prompt{
+	border:solid 1px #ffcd00;
+	background-color:#ffffda;
+	padding-left:5px;
+	padding-right:5px;
+	line-height:20px;
+	margin-bottom:5px;
+}
+.error_prompt{
+	border:solid 1px #ff3300;
+	background:#fff2e5 url(../images/li_err.gif) 5px 2px  no-repeat;
+	padding:2px 5px 0px 25px;
+	line-height:20px;
+	margin-bottom:5px;
+}
+.ok_prompt{
+	border:solid 1px #01be00;
+	background:#e6fee4 url(../images/li_ok.gif) 5px 2px no-repeat;
+	padding:2px 5px 0px 25px;
+	line-height:20px;
+	margin-bottom:5px;
+}
+	</style>
+</head>
+<body style="background-color:rgb(245,245,245)">
+	<iframe width="100%" height="100%" src="i1.html" frameborder="0" class="iframe"></iframe> 
+<div class="container">
+	<br/><br/>
+	<div class="main">
+	<form method="post" name="myForm">
+                    <div class="m1"><dl>
+                        <dt class="xx">账号：</dt>
+                        <dd id="userright"><input type="text" id="userName" class="inputs userWidth"/></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="userNameId"></div></dd></dl></div>
+                    <div class="m1"><dl>
+                        <dt class="xx">登录密码：</dt>
+                        <dd><input type="password" id="pwd" class="inputs"/></dd>                        
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="pwdId"></div></dd></dl></div>
+                    <div class="m1"><dl>
+                        <dt class="xx">重复登录密码：</dt>
+                        <dd><input type="password" id="repwd" class="inputs"/></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="repwdId"></div></dd></dl></div>
+                    <div class="m1"><dl>
+                        <dt class="xx">性别：</dt>
+                        <dd><input name="sex" type="radio" value="" checked="checked"/>男　　　<input name="sex" type="radio" value="" />女 </dd>
+                    </dl></div>
+                    <div class="m1"><dl>
+                        <dt class="xx">真实姓名：</dt>
+                        <dd><input type="text" id="realName" class="inputs" /></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div></div></dd></dl></div>						
+                    <div class="m1"><dl>
+                        <dt class="xx">昵称：</dt>
+                        <dd><input type="text" id="nickName" class="inputs"/></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="nickNameId"></div></dd></dl></div>					
+                    <div class="m1"><dl>
+                        <dt class="xx">关联手机号：</dt>
+                        <dd><input type="text" id="tel" class="inputs"/></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="telId"></div></dd></dl></div>						
+                    <div class="m1"><dl>
+                        <dt class="xx">保密邮箱：</dt>
+                        <dd><input type="email" id="email" class="inputs" name="email"/></dd>
+                    </dl></div>
+					<div class="m1"><dl><dd><div id="emailId"></div></dd></dl></div>					
+					<br/>
+                    <div class="m1"><dl>
+                        <button name=" " type="image" id="but" class="bb"/>注册</button>
+                    </dl></div>	
+	</form>
+	</div>
+	<br/><br/>
+</div>
+<iframe width="100%" height="100%" src="i2.html" frameborder="0" class="iframe"></iframe> 
+<script src="lib/jquery/jquery-1.11.0.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#email").focus(function(){
+			$("#emailId").append("请输入您常用的电子邮箱");
+			$("#emailId").addClass("import_prompt");		
+		});
+		$("#but").click(function(){
+		var mail = $("#userName").val();
+		var pass = $("#pwd").val();
+		var repass = $("#repwd").val();
+		var nick = $("#nickName").val();
+		var phone = $("#tel").val();
+	var x=document.forms["myForm"]["email"].value;
+	var atpos=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+		if (mail=="") {
+			$("#userNameId").append("通行证用户名不能为空");
+			$("#userNameId").addClass("error_prompt");	
+		}
+		else if(mail.length<4||mail.length>18){
+			$("#userNameId").append("账号长度为4-18");
+			$("#userNameId").addClass("error_prompt");			
+		}
+		else{		
+			$("#userNameId").append("通行证用户名输入正确");
+			$("#userNameId").addClass("ok_prompt");			
+
+		}				
+		if (pass.length<6||pass.length>16){
+			$("#pwdId").append("密码长度为6-16");
+			$("#pwdId").addClass("error_prompt");
+
+		}		
+		else{
+			$("#pwdId").append("密码输入正确");
+			$("#pwdId").addClass("ok_prompt");			
+		}
+		if (pass==repass){
+			$("#repwdId").append("密码验证成功");
+			$("#repwdId").addClass("ok_prompt");		
+		}
+		else{
+			$("#repwdId").append("两次输入的密码不一致，请重新输入！");
+			$("#repwdId").addClass("error_prompt");			
+		}
+		if (nick!=""){
+			$("#nickNameId").append("昵称输入正确");
+			$("#nickNameId").addClass("ok_prompt");		
+		}
+		else{
+			$("#nickNameId").append("昵称不能为空");
+			$("#nickNameId").addClass("error_prompt");	
+		}
+		if (phone.length!=""){
+			$("#telId").append("关联手机号输入正确");
+			$("#telId").addClass("ok_prompt");			
+		}
+		else{
+			$("#telId").append("关联手机号不能为空，请输入正确关联手机号");
+			$("#telId").addClass("error_prompt");			
+		}
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+			$("#emailId").empty();
+			$("#emailId").append("邮箱输入错误");
+			$("#emailId").addClass("error_prompt");
+			return false; 
+	}
+	else{
+			$("#emailId").empty();
+			$("#emailId").append("邮箱输入正确");
+			$("#emailId").addClass("ok_prompt");
+
+	}
+		if (mail!="" && 6<pass.length<16 && pass==repass && nick!="" && phone.length!=""){
+				window.location.href='choujiang.html';
+			return false;		
+		}
+		});
+	});
+</script>
+</body>
+</html>
